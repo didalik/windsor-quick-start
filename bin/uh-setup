@@ -77,8 +77,7 @@ run () { # {{{1
   install_node
   setup_vim
   if [ "$USER" = 'root' ]; then
-    mkdir -p $HOME/people/didalik
-    cd $HOME/people/didalik
+    cd $HOME && . .profile
     install_docker
     install_go
     install_aqua
