@@ -81,7 +81,8 @@ run () { # {{{1
     install_docker
     install_go
     install_aqua
-    which make || { apt update && apt install make }
+    apt update
+    which make || apt install make
     which tree || apt install tree
   else
     [ -z "$(sudo -u root cat /root/.ssh/authorized_keys)" ] && sudo cp $HOME/.ssh/authorized_keys /root/.ssh || echo '/root/.ssh/authorized_keys preserved'
