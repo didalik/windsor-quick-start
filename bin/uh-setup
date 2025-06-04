@@ -25,6 +25,7 @@ help () { # {{{1
 install_aqua () { # {{{1
   which aqua && return
   curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/$AQUA_INSTALLER_VERSION/aqua-installer | bash
+  echo "export PATH=${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH" >> $HOME/.profile
 }
 
 install_docker () { # {{{1
@@ -83,8 +84,6 @@ run () { # {{{1
     install_aqua
     which make || apt update && apt install make
     which tree || apt install tree
-    [ -d $HOME/people/didalik/mod-talos ] && return || echo 'Cloning mod-talos...'
-    git clone --recurse-submodules git@github.com:didalik/mod-talos.git
   else
     [ -z "$(sudo -u root cat /root/.ssh/authorized_keys)" ] && sudo cp $HOME/.ssh/authorized_keys /root/.ssh || echo '/root/.ssh/authorized_keys preserved'
     sudo [ -e /root/.ssh/id_ed25519 ] && echo 'root SSH identity preserved' || sudo cp $HOME/.ssh/id_ed25519* /root/.ssh
