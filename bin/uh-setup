@@ -62,7 +62,7 @@ install_node () { # {{{1
 
 run () { # {{{1
 	echo "run $# $@"
-  if [ -z "$SSH_CLIENT" ]; then
+  if [ "$(uname)" != 'Linux' ]; then
     local user=$1 box=$2 repo=$3
     echo "user $user, box $box, repo $repo"
     scp $HOME/.ssh/id_ed25519.pub $user@$box:.ssh/authorized_keys
