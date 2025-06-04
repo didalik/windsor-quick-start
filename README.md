@@ -28,3 +28,13 @@ and complete the setup with
 ```
 bin/uh-setup alik wx windsor-quick-start
 ```
+
+## Just Read The Instruction
+
+I SSH to `wx` as `root` and proceed with Windsor installation:
+
+```
+curl -L -o windsor_0.6.1_linux_arm64.tar.gz https://github.com/windsorcli/cli/releases/download/v0.6.1/windsor_0.6.1_linux_arm64.tar.gz && \
+tar -xzf windsor_0.6.1_linux_arm64.tar.gz -C /usr/local/bin && \
+chmod +x /usr/local/bin/windsor
+```
