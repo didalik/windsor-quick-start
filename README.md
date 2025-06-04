@@ -16,7 +16,14 @@ and add the following line to my `/etc/hosts` (your IP and username will differ)
 192.168.0.193   wx      # alik
 ```
 
-To setup the VM, I run
+Having SSHed to alik@wx, I run there
+
+```
+echo 'alik ALL=(ALL) NOPASSWD:ALL' | sudo tee /etc/sudoers.d/alik
+exit
+```
+
+and complete the setup with
 
 ```
 bin/uh-setup alik wx windsor-quick-start
