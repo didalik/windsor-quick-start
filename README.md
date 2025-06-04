@@ -19,5 +19,5 @@ and add the following line to my `/etc/hosts` (your IP and username will differ)
 To setup the VM, I run
 
 ```
-bin/uh-setup alik wx
+bin/uh-setup alik wx windsor-quick-start
 ```
