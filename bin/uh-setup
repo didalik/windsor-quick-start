@@ -68,9 +68,7 @@ run () { # {{{1
     scp $HOME/.ssh/id_ed25519.pub $user@$box:.ssh/authorized_keys
     scp $HOME/.ssh/id_ed25519.pub $user@$box:.ssh/id_ed25519.pub
     scp $HOME/.ssh/id_ed25519 $user@$box:.ssh/id_ed25519
-    local cmd="[ -e /etc/sudoers.d/$user ] || echo '$user ALL=(ALL) NOPASSWD:ALL' | sudo -S tee /etc/sudoers.d/$user"
-    ssh $user@$box "$cmd"
-    cmd="chmod 600 .ssh/*;rm -rf project;mkdir -p project;cd project;git clone https://github.com/didalik/$repo.git;cd $repo;$0"
+    local cmd="chmod 600 .ssh/*;rm -rf project;mkdir -p project;cd project;git clone https://github.com/didalik/$repo.git;cd $repo;$0"
     ssh $user@$box "$cmd"
     return 0
   fi
