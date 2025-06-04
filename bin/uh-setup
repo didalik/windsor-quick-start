@@ -68,7 +68,7 @@ run () { # {{{1
     scp $HOME/.ssh/id_ed25519.pub $user@$box:.ssh/authorized_keys
     scp $HOME/.ssh/id_ed25519.pub $user@$box:.ssh/id_ed25519.pub
     scp $HOME/.ssh/id_ed25519 $user@$box:.ssh/id_ed25519
-    local cmd="mkdir project;cd project;git clone git@github.com:didalik/$repo.git;cd $repo;$0"
+    local cmd="chmod 600 .ssh/*;rm -rf project;mkdir -p project;cd project;git clone https://github.com/didalik/$repo.git;cd $repo;$0"
     ssh $user@$box "$cmd"
     return 0
   fi
@@ -147,13 +147,12 @@ HD
 
 validate () { # {{{1
 	echo "validate $# $@"
-  if [ -z "$SSH_CLIENT" ]; then
+  if [ "$(uname)" != 'Linux' ]; then
     if [ $# -ne 3 ]; then
       return 1
     fi
     return 0
   fi
-  [ "$(uname)" = 'Linux' ] || echo -e "\n\tERROR: invalid uname: expected 'Linux', got '$(uname)'\n" && return 1
   [ "$USER" = 'root' ] || [ -e /etc/sudoers.d/$USER ] || echo "$USER  ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/$USER
 }
 
