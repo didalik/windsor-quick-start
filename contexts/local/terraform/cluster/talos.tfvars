@@ -34,8 +34,6 @@ common_config_patches = <<EOF
     - "10.5.0.2"
     - "controlplane-1"
     - "controlplane-1.test"
-  "extraManifests":
-  - "https://raw.githubusercontent.com/alex1989hu/kubelet-serving-cert-approver/v0.8.7/deploy/standalone-install.yaml"
 "machine":
   "certSANs":
   - "localhost"
@@ -44,7 +42,7 @@ common_config_patches = <<EOF
   - "controlplane-1.test"
   "kubelet":
     "extraArgs":
-      "rotate-server-certificates": "true"
+      "rotate-server-certificates": "false"
   "network": {}
   "registries":
     "mirrors":

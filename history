@@ -1,0 +1,83 @@
+root@wx:~/project/windsor-quick-start# sudo modprobe br_netfilter
+root@wx:~/project/windsor-quick-start# echo "1" | sudo tee /proc/sys/net/bridge/bridge-nf-call-ip6tables
+1
+root@wx:~/project/windsor-quick-start# echo "1" | sudo tee /proc/sys/net/bridge/bridge-nf-call-iptables
+1
+root@wx:~/project/windsor-quick-start# kubectl get all -n kube-system 
+NAME                                         READY   STATUS              RESTARTS        AGE
+pod/coredns-578d4f8ffc-gznh5                 0/1     ContainerCreating   0               18m
+pod/coredns-578d4f8ffc-qnqsx                 0/1     ContainerCreating   0               18m
+pod/kube-apiserver-controlplane-1            1/1     Running             0               18m
+pod/kube-controller-manager-controlplane-1   1/1     Running             2 (19m ago)     18m
+pod/kube-flannel-rr7cl                       0/1     CrashLoopBackOff    8 (2m32s ago)   18m
+pod/kube-flannel-sd5sd                       0/1     CrashLoopBackOff    8 (2m30s ago)   18m
+pod/kube-proxy-5l2mp                         1/1     Running             0               18m
+pod/kube-proxy-l4f2h                         1/1     Running             0               18m
+pod/kube-scheduler-controlplane-1            1/1     Running             2 (19m ago)     18m
+
+NAME               TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)                  AGE
+service/kube-dns   ClusterIP   10.96.0.10   <none>        53/UDP,53/TCP,9153/TCP   18m
+
+NAME                          DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+daemonset.apps/kube-flannel   2         2         0       2            0           <none>          19m
+daemonset.apps/kube-proxy     2         2         2       2            2           <none>          19m
+
+NAME                      READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/coredns   0/2     2            0           18m
+
+NAME                                 DESIRED   CURRENT   READY   AGE
+replicaset.apps/coredns-578d4f8ffc   2         2         0       18m
+root@wx:~/project/windsor-quick-start# history
+    1  cd $HOME
+    2  ls -la
+    3  cat .profile 
+    4  exit
+    5  cd $HOME
+    6  cat .profile 
+    7  exit
+    8  cd $HOME
+    9  cat .profile 
+   10  vim .profile 
+   11  which aqua
+   12  ls -la .local/share/aquaproj-aqua/bin/
+   13  which aqua
+   14  fg
+   15  clear
+   16  which docker
+   17  echo $PATH
+   18  vim .profile 
+   19  clear
+   20  . .profile 
+   21  echo $PATH
+   22  which aqua
+   23  exit
+   24  which aqua
+   25  -which aqua
+   26  exit
+   27  which aqua
+   28  cd $HOME
+   29  ls -la .ssh
+   30  exit
+   31  cd project/windsor-quick-start/
+   32  kubectl get node
+   33  kubectl get all -in
+   34  kubectl get all -n
+   35  kubectl get all -n system-gethub
+   36  kubectl get all -n system-gitops
+   37  kubectl describe pod/flux2-flux-check-rgjqw
+   38  kubectl describe pod/flux2-flux-check-rgjqw -n system-gitops
+   39  docker logs controlplane-1.txt
+   40  docker logs controlplane-1.test
+   41  which talosctl
+   42  talosctl version
+   43  kubectl get all -n kube-system
+   44  kubectl logs -n kube-system pod/kube-flannel-rr7cl
+   45  sudo modprobe br_netfilter
+   46  echo "1" | sudo tee /proc/sys/net/bridge/bridge-nf-call-iptables
+   47  echo "1" | sudo tee /proc/sys/net/bridge/bridge-nf-call-ip6tables
+   48  sudo modprobe br_netfilter
+   49  echo "1" | sudo tee /proc/sys/net/bridge/bridge-nf-call-ip6tables
+   50  echo "1" | sudo tee /proc/sys/net/bridge/bridge-nf-call-iptables
+   51  kubectl get all -n kube-system 
+   52  history
+root@wx:~/project/windsor-quick-start# cat > history
